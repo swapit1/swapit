@@ -1,0 +1,139 @@
+רגום הודעה
+השבתה עבור: אנגלית
+<form #expform="ngForm">
+  <div class=" ui-g-12">
+    <div class="card">
+      <p-steps [model]="items" [activeIndex]="2"></p-steps>
+    </div>
+
+    <div class="ui-g ui-g-12 bc">
+
+      <div class="ui-g-6 ">
+        <div style="direction:rtl" class="card card-w-title ">
+          <h1 class="h1">הדירה שאתה מחפש:</h1>
+          <div class="ui-g">
+            <div class="ui-g-12">
+              <div class="ui-g-4">
+                <p-dropdown name="area" [options]="area" [autoWidth]="true" [(ngModel)]="expData.excp_area"
+                placeholder="איזור">
+                </p-dropdown>
+              </div>
+              <div class="ui-g-4">
+              
+                    <p-dropdown [options]="cities" [filter]="true" [autoWidth]="false" [(ngModel)]="expData.excp_city"
+                    [ngModelOptions]="{standalone: true}" class="marg">
+                  </p-dropdown>
+            
+              </div>
+              <div class="ui-g-4">
+                <label> ₪{{displayRangeValues[1]}} - ₪{{displayRangeValues[0]}}</label><br />
+                <p-slider name="price" (onChange)="changeRangeValues($event)" [min]="20" [max]="50"
+                  [(ngModel)]="rangeValues" [range]="true">
+                </p-slider>
+              </div>
+            </div>
+            <hr>
+            <div class="ui-g-12">
+              <p>סוג נכס מבוקש</p>
+              <!-- (onChange)="changeTypeValue($event, type.propertytype_code)" -->
+              <!-- [(ngModel)]="" -->
+              <p-toggleButton *ngFor="let type of types" [onLabel]="type.propertytype_name" (onchange)="changeTypeValue($event,propertytype_code)"
+                [offLabel]="type.propertytype_name"></p-toggleButton>
+              <!-- <p-toggleButton name="house" onLabel="בית פרטי" offLabel="בית פרטי" [(ngModel)]="house"></p-toggleButton>
+              <p-toggleButton name="garden-house" onLabel="דירת גן" offLabel="דירת גן" [(ngModel)]="garden-house">
+              </p-toggleButton>
+              <p-toggleButton name="kotez" onLabel="קוטז" offLabel="קוטג" [(ngModel)]="kotez"></p-toggleButton>
+              <p-toggleButton name="pentaus" onLabel="פנטאוז" offLabel="פנטאוז" [(ngModel)]="pentaus"></p-toggleButton>
+              <p-toggleButton name="top-floor" onLabel="דירת גג" offLabel="דירת גן" [(ngModel)]="top-floor">
+              </p-toggleButton>
+              <p-toggleButton name="do-family" onLabel="דו משפחתי" offLabel="דו משפחתי" [(ngModel)]="do-family">
+              </p-toggleButton> -->
+
+
+
+            </div>
+            <hr>
+            <div class="ui-g-12">
+
+              <div class="ui-g-6">
+                <p class="pcss">מספר חדרים</p>
+
+                <p-dropdown name="room1" [options]="rooms" [autoWidth]="true" [(ngModel)]="expData.excp_min_rooms" class="r"
+                  (onChange)="initUntilRooms()" placeholder="החל מ">
+                </p-dropdown>
+
+                <p-dropdown name="room2" [options]="toRooms" [autoWidth]="true" [(ngModel)]="expData.excp_max_rooms"
+                  placeholder="עד">
+
+                </p-dropdown>
+              </div>
+
+              <div class="ui-g-6">
+                <p class="pcss">שטח[מ"ר]</p>
+                <p-dropdown name="meter1" [options]="meters" [autoWidth]="true" [(ngModel)]="expData.excp_min_square_meters" class="r"
+                  (onChange)="initUntilMeters()" placeholder="החל מ">
+                </p-dropdown>
+                <p-dropdown name="meter2" [options]="toMeters" [autoWidth]="true" [(ngModel)]="expData.excp_max_square_meters"
+                  placeholder="עד">
+                </p-dropdown>
+              </div>
+
+
+            </div>
+            <div class="ui-g-12">
+              <p>מצב הנכס המבוקש</p>
+              <div>
+                <div class="ui-g-2 t">
+                  <p-checkbox name="new"  label="חדש מהקבלן" [(ngModel)]="new" value=1></p-checkbox>
+                  
+                </div>
+                <div class="ui-g-2 t">
+                  <p-checkbox name="cg"  label="משופץ" [(ngModel)]="refurbished" value=2></p-checkbox>
+                </div>
+                <div class="ui-g-2 t">
+                  <p-checkbox name="saved"label="שמור" [(ngModel)]="wellMaintained" value=3></p-checkbox>
+                </div>
+              </div>
+            </div>
+            <div class="ui-g-12">
+              <p>מפרט דירה</p>
+
+              <p-toggleButton name="storage" onLabel="מחסן" offLabel="מחסן"  onIcon="fa fa-check"
+                offIcon="fa fa-archive" iconPos="right" [(ngModel)]="expData.excp_storage"></p-toggleButton>
+              
+                <p-toggleButton name="lift" onLabel="מעלית" offLabel="מעלית"  onIcon="fa fa-check"
+                offIcon="fa fa-toggle-up" iconPos="right" [(ngModel)]="expData.excp_lift"></p-toggleButton>
+              
+                <p-toggleButton name="air-c" onLabel="מיזוג" offLabel="מיזוג"  onIcon="fa fa-check"
+                offIcon="fa fa-snowflake-o" iconPos="right" [(ngModel)]="expData.excp_air_conditioning"></p-toggleButton>
+             
+                <p-toggleButton name="disable" onLabel="נגיש" offLabel="נגיש"  onIcon="fa fa-check"
+                offIcon="fa fa-wheelchair" iconPos="right" [(ngModel)]="expData.excp_disabled_access"></p-toggleButton>
+             
+                <p-toggleButton name="bars" onLabel="סורגים" offLabel="סורגים"  onIcon="fa fa-check"
+                offIcon="fa fa-server" iconPos="right" [(ngModel)]="expData.excp_bars"></p-toggleButton>
+            
+                <p-toggleButton name="safe-room" onLabel="ממד" offLabel="ממד"  onIcon="fa fa-check"
+                 offIcon="fa fa-shield" iconPos="right" [(ngModel)]="expData.excp_safe_room"></p-toggleButton>
+              
+                <p-toggleButton name="parking" onLabel="חניה" offLabel="חניה"  onIcon="fa fa-check"
+                 offIcon="fa fa-car" iconPos="right" [(ngModel)]="expData.excp_parking"></p-toggleButton>
+
+                <p-toggleButton name="succa" onLabel="סוכה" offLabel="סוכה"  onIcon="fa fa-check" 
+                offIcon="fa fa-university"  iconPos="right" [(ngModel)]="expData.excp_succa"></p-toggleButton>
+               
+              
+            </div>
+            <div class="ui-g-12">
+              <button pButton type="button" label="{{newUser ? 'שמור': 'עדכן'}}" class="alef"
+                style="margin-bottom:10px; width: 120px;margin-top: 25px;font-size: 15pt;float: left;"
+                (click)="SubmitButton()"></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="ui-g-6 "><img class="img img1" src="assets/demo/images/home-images/exep.jpg" /></div>
+    </div>
+  </div>
+</form>

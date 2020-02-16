@@ -1,0 +1,77 @@
+@import url(http://fonts.googleapis.com/earlyaccess/alefhebrew.css);
+
+.ui-steps-item {
+    width: 25%
+}
+.dir{
+    direction: rtl;
+}
+.fl{
+    float: right;
+    width:20%;
+    padding:0px;
+    direction: rtl;
+}
+/* .card.card-w-title{
+   width:50%;
+    float: right;
+
+} */
+label{
+    font-family:  "Alef Hebrew",
+    “Helvetica Neue”,
+    Helvetica,
+    Arial,
+    sans-serif;
+    font-size: 14pt;
+}
+.alef{
+    font-family:  "Alef Hebrew",
+    “Helvetica Neue”,
+    Helvetica,
+    Arial,
+    sans-serif !important;
+   
+}
+.tellUs{
+    font-family: "Alef Hebrew",
+               “Helvetica Neue”,
+               Helvetica,
+               Arial,
+               sans-serif;
+               font-weight: 700;
+               color: #1ab394;
+               font-size: 45pt;
+               padding-bottom:5px;
+               padding-right: 20px;
+               padding-left:40px;
+               direction: rtl;
+               line-height: 38px;
+           
+}
+h1{
+    font-family: "Alef Hebrew",
+               “Helvetica Neue”,
+               Helvetica,
+               Arial,
+               sans-serif;
+}
+body .ui-steps .ui-steps-item.ui-state-highlight .ui-steps-title{
+    font-family: "Alef Hebrew",
+               “Helvetica Neue”,
+               Helvetica,
+               Arial,
+               sans-serif;
+    font-size: 20px;           
+}
+body .ui-steps .ui-steps-item .ui-menuitem-link .ui-steps-title{
+    font-family: "Alef Hebrew",
+               “Helvetica Neue”,
+               Helvetica,
+               Arial,
+               sans-serif;
+               font-size: 23px;
+}
+.ui-message{
+    width:150px;
+}

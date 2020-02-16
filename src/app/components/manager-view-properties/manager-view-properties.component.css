@@ -1,0 +1,14 @@
+
+ h1{
+    direction: rtl;
+    display: inline;
+    padding:0px;
+}
+ .card.card-w-title{
+padding:0px;
+}
+ .side{
+    direction: rtl;
+}
+
+

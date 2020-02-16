@@ -1,0 +1,79 @@
+@import url(http://fonts.googleapis.com/earlyaccess/alefhebrew.css);
+agm-map {
+    height: 800px;
+  }
+  .right{
+    float: right;
+  }
+  .left{
+    float: left;
+  }
+  .gofan{
+    font-family:  "Alef Hebrew",
+    “Helvetica Neue”,
+    Helvetica,
+    Arial,
+    sans-serif;
+  }
+  #listing {
+    position: absolute;
+    width: 200px;
+    height: 107%;
+    overflow: auto;
+    left: 17px;
+    top: 129px;
+    cursor: pointer;
+    overflow-x: hidden;
+    float: left;
+  }
+  /* .listing {
+    position: absolute;
+    width: 200px;
+    height: 470px;
+    overflow: auto;
+    left: 442px;
+    top: 0px;
+    cursor: pointer;
+    overflow-x: hidden;
+  } */
+
+  .prop-p{
+display: inline-block;
+font-family:  "Alef Hebrew",
+    “Helvetica Neue”,
+    Helvetica,
+    Arial,
+    sans-serif;
+font-size: 18pt;
+font-weight: 700;
+color: rgb(5, 5, 80); 
+margin-left: 5px;
+margin-top: 15px;
+margin-bottom: 15px;
+
+
+  }
+
+  .is{
+    font-size: 21px;
+    font-family:  "Alef Hebrew",
+    “Helvetica Neue”,
+    Helvetica,
+    Arial,
+    sans-serif;
+    font-weight: 600;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  .isnt{
+    font-size: 21px;
+    font-family:  "Alef Hebrew",
+    “Helvetica Neue”,
+    Helvetica,
+    Arial,
+    sans-serif;
+    font-weight: 600;
+    color: gray;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }

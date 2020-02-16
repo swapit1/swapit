@@ -1,0 +1,11 @@
+
+/* You can add global styles to this file, and also import other style files */
+body .md-inputfield input:focus ~ label, body .md-inputfield input.ui-state-filled ~ label, body .md-inputfield .ui-inputwrapper-focus ~ label, body .md-inputfield .ui-inputwrapper-filled ~ label{
+    color: #1ab394;
+}
+.margin-left-password-icon{
+    margin-left: -20px;
+}
+.ui-spinner-up{
+    top: -6px;
+}

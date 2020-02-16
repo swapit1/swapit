@@ -1,0 +1,25 @@
+
+.user-view-ui .ui-carousel-item{
+    direction: rtl;
+}
+.clear{
+    border-color: #1ab394;
+    background-color: lightgray;
+    padding: 10px;
+    color:white;
+    background-color:#2f4050;
+    border-radius: 5px;
+    font-size:small;
+    border-width: 1px;
+    height: 40px;
+    margin: 8px;
+    float: left;
+    margin-top: 15px;
+}
+.h{
+    direction: rtl;
+    font-size: 20px !important;
+    color:#1ab394;
+    font-size: 50px;
+    font-weight: 700px !important;
+    }

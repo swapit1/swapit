@@ -1,0 +1,23 @@
+<div class="ui-g-12 ">
+<span class="title">sign in</span></div><br/>
+<div class="ui-g-12 ui-md-4">
+  <span class="md-inputfield">
+    <input pInputText  type="text" [(ngModel)]="userEmail"/> 
+      <label>Email</label>
+  </span>
+</div><br/><br/>
+<div class="ui-g-12 ">
+    <span class="md-inputfield">
+  <input pInputText  type="password" appPassword [(ngModel)]="password"/> 
+  <label>Password</label> </span> </div>
+  <br/>
+  <div class="ui-g-12 " >
+  <div class="ui-g-12 ui-md-6 " style="text-align:center">
+    <button  pButton type="button" label="Log in" style="margin-bottom:10px;" (click)="loginUser()"></button> </div></div><br/>
+  <div class="ui-g-12 ">
+<span class="login-text" (click)="forgotPassword()">שכחת סיסמא?</span><br/>
+<span class="login-text" (click)="createAccount()" >עדיין אין לך חשבון?</span>
+  </div>
+  
+      
+ 

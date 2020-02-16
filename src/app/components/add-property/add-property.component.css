@@ -1,0 +1,70 @@
+@import url(http://fonts.googleapis.com/earlyaccess/alefhebrew.css);
+
+.ui-steps-item {
+    width: 25%
+}
+.dir{
+    direction: rtl;
+}
+.ui-button{
+    border-radius: 17px !important;
+    font-family:  "Alef Hebrew",
+    “Helvetica Neue”,
+    Helvetica,
+    Arial,
+    sans-serif !important;
+    font-weight: 700 !important;
+    margin: 4px;
+}
+.your-house{
+    direction: rtl;
+    text-align: center;
+    font-size: 30pt !important;
+    font-weight: 700 !important ;
+    font-family:  "Alef Hebrew",
+    “Helvetica Neue”,
+    Helvetica,
+    Arial,
+    sans-serif !important;
+
+}
+.ui-dropdown{
+    direction: rtl !important;
+}
+.card.card-w-title{
+    direction: rtl;
+}
+.ui-g{
+    padding-bottom: 10px !important;
+}
+.dd{
+    margin:18px ;
+    padding: 6px;
+}
+
+body .ui-steps .ui-steps-item.ui-state-highlight .ui-steps-title{
+    font-family: "Alef Hebrew",
+               “Helvetica Neue”,
+               Helvetica,
+               Arial,
+               sans-serif;
+    font-size: 20px;           
+}
+body .ui-steps .ui-steps-item .ui-menuitem-link .ui-steps-title{
+    font-family: "Alef Hebrew",
+               “Helvetica Neue”,
+               Helvetica,
+               Arial,
+               sans-serif;
+               font-size: 23px;
+}
+
+.head-line{
+    font-weight: 700 !important;
+    font-family: "Alef Hebrew",
+    “Helvetica Neue”,
+    Helvetica,
+    Arial,
+    sans-serif;
+    font-size: 19pt !important;
+}

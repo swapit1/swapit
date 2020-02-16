@@ -1,0 +1,124 @@
+<div class="ui-g">
+  <div class="ui-g-12" *ngIf="loaded">
+
+    <div class="ui-g-6">
+      
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" (mapReady)="aa($event)">
+        <agm-marker [latitude]="lat" [longitude]="lng" [label]="cccc"></agm-marker>
+      </agm-map>
+      
+      <div style="display: none">
+        <div id="info-content">
+          <table>
+            <tr id="iw-url-row" class="iw_table_row">
+              <td id="iw-icon" class="iw_table_icon"></td>
+              <td id="iw-url"></td>
+            </tr>
+            <tr id="iw-address-row" class="iw_table_row">
+              <td class="iw_attribute_name">Address:</td>
+              <td id="iw-address"></td>
+            </tr>
+            <tr id="iw-phone-row" class="iw_table_row">
+              <td class="iw_attribute_name">Telephone:</td>
+              <td id="iw-phone"></td>
+            </tr>
+            <tr id="iw-rating-row" class="iw_table_row">
+              <td class="iw_attribute_name">Rating:</td>
+              <td id="iw-rating"></td>
+            </tr>
+            <tr id="iw-website-row" class="iw_table_row">
+              <td class="iw_attribute_name">Website:</td>
+              <td id="iw-website"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div id="listing" class="listing">
+        <table id="resultsTable">
+          <tbody id="results"></tbody>
+        </table>
+       
+      </div>
+    </div>
+
+    <div class="ui-g-6">
+
+      <div class="ui-g-12 card"> <img width="100%" height="300px" style="float: right;"
+          src="http://localhost:59069//Userproperty//{{imgLink}}">
+      </div>
+      <div class="ui-g-12" style="padding-bottom: 0mm;">
+        <div class="card-w-title">
+          <h1 class="gofan" style="float: right;">{{property.property_street}} - {{property.property_city}}</h1>
+          <h1 class="gofan" style="float: left;">{{ DisplayNumberWithCommas(property.property_price)}} ₪</h1>
+        </div>
+      </div>
+      <div class="ui-g-12" style="padding-top: 0mm;">
+        <div class="card-w-title">
+          <h2 class="gofan" style="float: right; color: rgb(92, 91, 91);">{{area}}</h2>
+        </div>
+      </div>
+      <hr>
+      <div class="ui-g-12 card-w-title" style="direction: rtl;">
+        <p class="prop-p" style="display: block;"> {{property.property_rooms}} חדרים | קומה {{property.property_floor}}
+          | {{property.property_squaremeters}} מטר ריבועי </p>
+        <p class="prop-p">סוג הנכס: {{propType}}</p>
+        <p class="prop-p" *ngIf="property.property_condition!=8"> | מצב הנכס: {{condition}} </p>
+      </div>
+      <hr>
+      <div class="ui-g-12 card-w-title" style="direction: rtl;">
+      <button class="ui-g-3" type="button" icon="ui-icon-send" label="בתי ספר באזור" pButton 
+      (click)="send()"></button>
+      <button class="ui-g-3" type="button" icon="ui-icon-send" label="בתי כנסת באזור" pButton style="margin-left: 13%;"
+      (click)="send()"></button>
+      <button class="ui-g-3" type="button" icon="ui-icon-send" label="אוכל באזור" pButton style="float: right;"
+      (click)="send()"></button>
+    </div>
+      <hr>
+      <div class="ui-g-12 card-w-title" style="direction: rtl;">
+        <h1 class="gofan">מפרט דירה</h1>
+
+        <div class="ui-g-6">
+          <p class="is" *ngIf="property.property_bars==true"><i class="fa fa-server"> </i> יש סורגים</p>
+          <p class="isnt" *ngIf="property.property_bars!=true"><i class="fa fa-server"> </i> אין סורגים</p>
+
+          <p class="is" *ngIf="property.property_safe_room==true"><i class="fa fa-shield"> </i> יש ממ"ד או מקלט</p>
+          <p class="isnt" *ngIf="property.property_safe_room!=true"><i class="fa fa-shield"> </i> אין ממ"ד או מקלט</p>
+
+          <p class="is" *ngIf="property.property_parking==true"><i class="fa fa-car"> </i> יש חניה</p>
+          <p class="isnt" *ngIf="property.property_parking!=true"><i class="fa fa-car"> </i> אין חניה</p>
+
+          <p class="is" *ngIf="property.property_succa==true"><i class="fa fa-university"> </i> יש סוכה</p>
+          <p class="isnt" *ngIf="property.property_succa!=true"><i class="fa fa-university"> </i> אין סוכה</p>
+
+
+        </div>
+
+        <div class="ui-g-6">
+          <p class="is" *ngIf="property.property_storage==true"><i class="fa fa-archive"> </i> יש מחסן</p>
+          <p class="isnt" *ngIf="property.property_storage!=true"><i class="fa fa-archive"> </i> אין מחסן</p>
+
+          <p class="is" *ngIf="property.property_lift==true"><i class="fa fa-toggle-up"> </i> יש מעלית</p>
+          <p class="isnt" *ngIf="property.property_lift!=true"><i class="fa fa-toggle-up"> </i> אין מעלית</p>
+
+          <p class="is" *ngIf="property.property_disabled_access==true"><i class="fa fa-wheelchair"> </i> יש נגישות
+            לנכים</p>
+          <p class="isnt" *ngIf="property.property_disabled_access!=true"><i class="fa fa-wheelchair"> </i> אין נגישות
+            לנכים</p>
+
+          <p class="is" *ngIf="property.property_air_conditioning==true"><i class="fa fa-snowflake-o"> </i> יש מיזוג
+            אוויר</p>
+          <p class="isnt" *ngIf="property.property_air_conditioning!=true"><i class="fa fa-snowflake-o"> </i> אין מיזוג
+            אוויר</p>
+
+
+        </div>
+        <button class="ui-g-3" type="button" style="font-weight: 700;"  pButton label="הבע התעניינות"
+      (click)="showInterest()"></button>
+      </div>
+      <hr>
+
+    </div>
+
+  </div>
+</div>
+

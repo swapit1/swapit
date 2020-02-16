@@ -1,0 +1,89 @@
+@import url(http://fonts.googleapis.com/earlyaccess/alefhebrew.css);
+
+.ui-steps-item {
+    width: 25%
+}
+.dir{
+    direction: rtl;
+}
+.sig{
+border-style: dashed;
+color:lightgray;
+ 
+}
+body .ui-steps .ui-steps-item.ui-state-highlight .ui-steps-title{
+    font-family: "Alef Hebrew",
+               “Helvetica Neue”,
+               Helvetica,
+               Arial,
+               sans-serif;
+    font-size: 20px;           
+}
+body .ui-steps .ui-steps-item .ui-menuitem-link .ui-steps-title{
+    font-family: "Alef Hebrew",
+               “Helvetica Neue”,
+               Helvetica,
+               Arial,
+               sans-serif;
+               font-size: 23px;
+}
+
+.clear{
+    border-color: gray;
+    background-color: lightgray;
+    padding: 10px;
+    color:grey;
+    border-radius: 5px;
+    font-size:small;
+    border-width: 1px;
+    height: 40px;
+    margin: 8px;
+    float: left;
+    margin-top: 15px;
+}
+.tellUs{
+    font-family: "Alef Hebrew",
+               “Helvetica Neue”,
+               Helvetica,
+               Arial,
+               sans-serif;
+               font-weight: 700;
+               color: #1ab394;
+               font-size: 50pt;
+               padding-bottom:5px;
+               padding-right: 20px;
+               padding-left:40px;
+               direction: rtl;
+               line-height: 30px;
+               margin-left: 327px;
+           
+}
+.dl{
+    color: gray;
+    background-color:lightgray;
+    border-radius: 10px;
+    border-color: darkgrey;
+    height: 30px;
+    
+    
+
+}
+.b{
+    margin-top: 65px;
+}
+.img1{
+    height: 400px;
+    width: 80%;
+    opacity:0.92;
+    float: right;
+    border-radius: 30px;
+    
+}
+
+.sig-pad
+    canvas{
+       background-image: url(http://lathonez.com/angular2-signaturepad-demo/assets/sign-here.png);
+        background-repeat: no-repeat;
+        background-position-y: 145%; 
+        width: 100%;
+    }
