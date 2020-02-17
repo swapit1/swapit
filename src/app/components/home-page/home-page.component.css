@@ -1,0 +1,20 @@
+.ui-galleria-panel{
+    height: 100% !important;
+    width: 100%;
+}
+.ui-galleria-panel .ui-panel-images{
+    height: 100%;
+    width: 100%;
+}
+.card.contain-gallery{
+    padding: 0 ;
+    margin-bottom: 0px;
+}
+/* .card{
+    padding: 0 ;
+    
+} */
+/* .ui-galleria{
+    height:520px !important;
+}
+ */

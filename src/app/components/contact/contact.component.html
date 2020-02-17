@@ -1,0 +1,112 @@
+<div class="ui-g-12 ui-rtl" dir="rtl">
+    <div class="card card-w-title">
+        <div><img class="img img2" src="assets/demo/images/home-images/contact1.jpg" /></div>
+        <h1>צרו איתנו קשר</h1>
+    </div>
+
+    <div class="ui-g">
+        <div class="ui-g-6">
+            <div class="left-float">
+                <p> נשמח לקבל בקשות לתוספות וביקורת בונה.</p>
+                <p>פנו אלנו באימייל sswapit@gmail.com</p>
+                <p>או מלאו את הטופס שלפניכם.</p>
+            </div>
+        </div>
+
+        <div class="ui-g-6">
+            <div class="ui-g-6 concat-us-panel">
+                <div class="ui-g-12">
+                    <p-dropdown [options]="categories" [autoWidth]="true" [(ngModel)]="selectedSubject" placeholder="נושא פניה"
+                    optionLabel="subject" [dataKey]="subject_code">
+                     </p-dropdown>
+                </div>
+                <br /><br />
+
+                <div>
+                    <div class="ui-g form-group">
+                        <div class="ui-g-4 m">
+                            <span class="md-inputfield md-inputfield-fill">
+                                <input type="text" pInputText [(ngModel)]="note.name" [disabled]="currentUser">
+                                <label>שם</label>
+                            </span>
+                        </div>
+                        <div class="ui-g-4 m">
+                            <span class="md-inputfield md-inputfield-fill">
+                                <input type="text" pInputText [(ngModel)]="note.email" [disabled]="currentUser">
+                                <label>אימייל</label>
+                            </span>
+                        </div>
+                        <div class="ui-g-4 m">
+                            <span class="md-inputfield md-inputfield-fill">
+                                <input type="text" pInputText [(ngModel)]="note.phone" [disabled]="currentUser">
+                                <label> טלפון</label>
+                            </span>
+                        </div>
+                        <div class="ui-g-4 m">
+                            <span class="md-inputfield md-inputfield-fill">
+                                <textarea [rows]="1" [cols]="22" pInputTextarea placeholder="תוכן ההודעה" [(ngModel)]="note.text"
+                                    autoResize="autoResize"></textarea>
+                            </span>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <br /> <br />
+                    <button class="ui-g-6 r" type="button" icon="ui-icon-send" label="שליחת פניה" pButton (click)="send()"></button>
+                    <br /> <br />
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- <div class="ui-rtl" dir="rtl">
+    <div class="card cards ">
+        <div class="ui-g-6 ui-md-4">
+            <div class="divdiv">
+                <h1 class="title2">יצירת קשר עם Swap It</h1>
+                <p>
+                    נשמח לקבל בקשות לתוספות וביקורת בונה.</p>
+                <p>פנו אלנו באימייל sswapit@gmail.com</p>
+                <p>או מלאו את הטופס שלפניכם.</p>
+            </div>
+            <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid contact-form contact ">
+            </div>
+        </div>
+
+        <div class="ui-g-6 ui-md-4">
+                <p-panel>
+                    <p-header class="header1"> צרו איתנו קשר</p-header>
+                    <div class="ui-g ">
+                        <div class="ui-g-12">
+                            <p-dropdown [options]="categories" [autoWidth]="false" [(ngModel)]="selectedCity"></p-dropdown>
+                        </div>
+                        <div class="ui-g-12">
+                            <span class="md-inputfield">
+                                <input id="name1" type="text" pInputText />
+                                <label for="name">שם</label>
+                            </span>
+                        </div>
+                        <div class="ui-g-12">
+                            <span class="md-inputfield">
+                                <input id="email1" type="text" pInputText />
+                                <label for="email">אימייל</label>
+                            </span>
+                        </div>
+                        <div class="ui-g-12">
+                            <span class="md-inputfield">
+                                <input id="message" type="text" pInputText />
+                                <label class="labels" for="message">טלפון</label>
+                            </span>
+                        </div>
+                    </div>
+                    <button class="mm" type="button" icon="ui-icon-send" label="שליחת פניה" pButton></button>
+                </p-panel>
+            </div>
+    </div>
+</div> -->

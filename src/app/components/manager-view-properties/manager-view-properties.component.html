@@ -1,0 +1,66 @@
+<div class="ui-g-12">
+  <div class="card card-w-title">
+      <!-- filterBy="property_city" -->
+      <p-dataView #dv [value]="propertiesList" [paginator]="true" [rows]="12" paginatorPosition="bottom"
+          [sortField]="sortField" [sortOrder]="sortOrder" layout='grid'>
+          <p-header>
+              <div class="ui-helper-clearfix">
+                  <div class="ui-g">
+                      <div class="ui-g-12 ui-md-4">
+                          <p-dropdown class="side" [options]="sortOptions" [(ngModel)]="sortKey"
+                              placeholder="מיין לפי" (onChange)="onSortChange($event)" [style]="{'width':'15em'}">
+                          </p-dropdown>
+                      </div>
+                      <div class="ui-g-6 ui-md-4 filter-container">
+                          <div style="position:relative">
+                              <!-- (keyup)="dv.filter($event.target.value)" -->
+                              <input type="search" pInputText placeholder="חיפוש לפי עיר" (keyup)="filter()"
+                                  [(ngModel)]="filterCityValue" style="margin-right: 25px; direction: rtl;">
+                              <input type="search" pInputText placeholder="חיפוש לפי מס' חדרים" (keyup)="filter()"
+                                  [(ngModel)]="filterRoomValue"  style="direction: rtl;">
+
+                          </div>
+                      </div>
+
+                      <div class="ui-g-6 ui-md-4" style="text-align:right">
+                          <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+                      </div>
+                  </div>
+              </div>
+          </p-header>
+          <ng-template let-property pTemplate="listItem">
+              <div style="padding:.5em" class="ui-g-12 ui-md-3">
+                  <p-panel [header]="property.property_street" [style]="{'text-align':'center'}" >
+                      <img width="30%" height="220px" src="http://localhost:59069//Userproperty//{{property.imgName}}">
+                      <div class="property-detail"> {{ DisplayNumberWithCommas(property.property_price)}} </div>
+                      <div class="property-detail"> חד' {{property.property_rooms}} |
+                          {{property.property_squaremeters}} מ"ר </div>
+                      <hr class="ui-widget-content" style="border-top:0">
+                      <button *ngIf="loginService.getCurrentUser()" (click)="displayMoreData(property)" pButton
+                          type="button" icon="pi pi-search" style="margin-top:0"></button>
+                      <button *ngIf="!loginService.getCurrentUser()" (click)="opLogin.toggle($event)" pButton type="button"
+                          icon="pi pi-search" style="margin-top:0"></button>
+                  </p-panel>
+              </div>
+          </ng-template>
+          <ng-template let-property pTemplate="gridItem">
+              <div style="padding:.5em" class="ui-g-12 ui-md-3">
+                  <p-panel [header]="property.property_street" [style]="{'text-align':'center'}" >
+                      <img width="85%" height="150px" src="http://localhost:59069//Userproperty//{{property.imgName}}">
+                      <div class="property-detail"> {{ DisplayNumberWithCommas(property.property_price)}} </div>
+                      <div class="property-detail"> חד' {{property.property_rooms}} |
+                          {{property.property_squaremeters}} מ"ר </div>
+                      <hr class="ui-widget-content" style="border-top:0">
+                      <button *ngIf="loginService.getCurrentUser()" (click)="displayMoreData(property)" pButton
+                          type="button" icon="pi pi-search" style="margin-top:0"></button>
+                      
+                  </p-panel>
+              </div>
+          </ng-template>
+      </p-dataView>
+  </div>
+</div>
+
+<p-overlayPanel appendTo="body" #opLogin>
+  <app-login></app-login>
+</p-overlayPanel>

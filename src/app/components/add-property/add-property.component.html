@@ -1,0 +1,215 @@
+<input ngx-google-places-autocomplete lang="he" #placesRef="ngx-places" [options]="{types: [],componentRestrictions: { country: 'IL' }}" (onAddressChange)="handleAddressChange($event)"/>
+
+
+<div class="ui-g-12">
+  <div class="card">
+    <p-steps [model]="items" [activeIndex]="1"></p-steps>
+  </div>
+  <div class="ui-g-4 ">
+    <img class="ui-g-12" src="assets/layout/images/move-house.jpg" alt="homeBoxes">
+
+  </div>
+
+  <div class="ui-g ui-g-8">
+
+    <div class="ui-g-12">
+      <form [formGroup]="propform" style="direction: rtl;">
+        <div class="card card-w-title">
+          <h1 class="your-house">הבית שלך:</h1><br />
+          <div class="ui-g">
+            <div class="ui-g-6">
+
+              <div class="ui-g form-group">
+                <div class="ui-g">
+                  <p-dropdown [options]="cities" [filter]="true" [autoWidth]="false"
+                    [(ngModel)]="propdata.property_city" formControlName="city">
+                  </p-dropdown>
+                </div>
+              </div>
+              <!--city-->
+              <div class="ui-g form-group">
+                <div class="ui-g">
+                  <p-dropdown [options]="types" [autoWidth]="false" [(ngModel)]="propdata.property_type"
+                    formControlName="type" placeholder="סוג הנכס"></p-dropdown>
+                </div>
+              </div>
+              <!--type-->
+
+
+
+            </div>
+            <!--end first div ui-g-6-->
+
+            <div class="ui-g-6">
+
+
+              <div class="ui-g form-group">
+                <div class="ui-g">
+                  <p-dropdown [options]="areas" [autoWidth]="false" [(ngModel)]="propdata.property_area"
+                    formControlName="area" placeholder="איזור"></p-dropdown>
+                </div>
+              </div>
+              <!--area-->
+
+              <div class="ui-g form-group">
+                <div class="ui-g-6--">
+                  <p-dropdown [options]="conditions" [autoWidth]="false" [(ngModel)]="propdata.property_condition"
+                    formControlName="condition" placeholder="מצב הנכס"></p-dropdown>
+                </div>
+              </div>
+              <!--condition-->
+
+
+
+            </div>
+            <!--end second div ui-g-6-->
+
+            <div class="ui-g ui-g-12">
+
+              <div class="ui-g-3">
+                <div class="ui-g form-group">
+
+
+                  <input formControlName="zipCode" type="text" [(ngModel)]="propdata.property_zipcode" pInputText
+                    placeholder="מיקוד">
+
+
+                </div>
+
+              </div>
+
+              <div class="ui-g-3">
+
+                <p-dropdown [options]="meters" [autoWidth]="true" [(ngModel)]="propdata.property_squaremeters"
+                  formControlName="meter" placeholder="מטר ריבועי" class="dd">
+                </p-dropdown>
+              </div>
+
+              <div class="ui-g-3">
+                <div class="ui-g form-group">
+
+                  <input type="text" formControlName="street" [(ngModel)]="propdata.property_street" pInputText
+                    placeholder="רחוב">
+
+                </div>
+              </div>
+            </div>
+            <div class="ui-g ui-g-12">
+              <div class="ui-g-3">
+
+                <p-spinner [(ngModel)]="propdata.property_house_number" [min]="0" [max]="100" formControlName="houseNumber"
+                  placeholder="מס' בית">
+                </p-spinner>
+
+
+              </div>
+
+              <div class="ui-g-3">
+
+                <p-spinner [(ngModel)]="propdata.property_flat_number" [min]="0" [max]="100"
+                  formControlName="flatNumber" placeholder="מס' דירה">
+                </p-spinner>
+
+
+
+              </div>
+
+              <div class="ui-g-3 ">
+
+                <div style="margin-bottom:10px">
+                  <input formControlName="entrance" type="text" [(ngModel)]="propdata.property_entrance" pInputText
+                    placeholder="כניסה">
+                </div>
+
+
+              </div>
+            </div>
+
+
+            <div class="ui-g ui-g-12">
+
+              <div class="ui-g-3">
+
+                <p-dropdown [options]="rooms" [autoWidth]="true" [(ngModel)]="propdata.property_rooms"
+                  formControlName="room" placeholder="מספר חדרים" class="dd">
+                </p-dropdown>
+
+              </div>
+
+              <div class="ui-g-3">
+
+                <div style="margin-bottom:10px">
+                  <input formControlName="floor" type="text" [(ngModel)]="propdata.property_floor" pInputText
+                    placeholder="קומה">
+                </div>
+              </div>
+
+              <div class="ui-g-3">
+                <p-dropdown [options]="airWays" [autoWidth]="true" [(ngModel)]="propdata.property_airways"
+                  formControlName="airWay" placeholder="כיווני אוויר" class="dd">
+                </p-dropdown>
+              </div>
+
+            </div>
+
+            <div class="ui-g ui-g-12">
+              <p-spinner [(ngModel)]="propdata.property_price" [min]="0" [max]="5000000" formControlName="housePrice"
+                  placeholder="מחיר"  [step]="10000" >
+                </p-spinner>
+            </div>
+
+            <div class="ui-g-12">
+              <h1 class="head-line">מפרט דירה</h1>
+
+
+              <p-toggleButton name="storage" onLabel="מחסן" offLabel="מחסן" onIcon="fa fa-check"
+                formControlName="storage" offIcon="fa fa-archive" iconPos="right"
+                [(ngModel)]="propdata.property_storage"></p-toggleButton>
+
+              <p-toggleButton name="lift" onLabel="מעלית" offLabel="מעלית" onIcon="fa fa-check" formControlName="lift"
+                offIcon="fa fa-toggle-up" iconPos="right" [(ngModel)]="propdata.property_lift"></p-toggleButton>
+
+              <p-toggleButton name="air-c" onLabel="מיזוג" offLabel="מיזוג" onIcon="fa fa-check"
+                formControlName="airConditioning" offIcon="fa fa-snowflake-o" iconPos="right"
+                [(ngModel)]="propdata.property_air_conditioning">
+              </p-toggleButton>
+
+              <p-toggleButton name="disable" onLabel="נגיש" offLabel="נגיש" onIcon="fa fa-check"
+                formControlName="disabledAccess" offIcon="fa fa-wheelchair" iconPos="right"
+                [(ngModel)]="propdata.property_disabled_access">
+              </p-toggleButton>
+
+              <p-toggleButton name="bars" onLabel="סורגים" offLabel="סורגים" onIcon="fa fa-check" formControlName="bars"
+                offIcon="fa fa-server" iconPos="right" [(ngModel)]="propdata.property_bars"></p-toggleButton>
+
+              <p-toggleButton name="safe-room" onLabel="ממד" offLabel="ממד" onIcon="fa fa-check" offIcon="fa fa-shield"
+                formControlName="safeRoom" iconPos="right" [(ngModel)]="propdata.property_safe_room"></p-toggleButton>
+
+              <p-toggleButton name="parking" onLabel="חניה" offLabel="חניה" onIcon="fa fa-check" offIcon="fa fa-car"
+                formControlName="parking" iconPos="right" [(ngModel)]="propdata.property_parking"></p-toggleButton>
+
+              <p-toggleButton name="succa" onLabel="סוכה" offLabel="סוכה" onIcon="fa fa-check" offIcon="fa fa-university"
+                formControlName="succa" iconPos="right" [(ngModel)]="propdata.property_succa"></p-toggleButton>
+
+            </div>
+            <div class="ui-g ui-g-12">
+              <button pButton type="button" label="{{newUser ? 'שמור נתוני דירה' : 'עדכן נתוני דירה'}}" class="alef"
+                style="margin-bottom:10px; width: 200px;margin-top: 18px;font-size: 15pt;"
+                (click)="SubmitButton()" [disabled]="propform.invalid"></button>
+
+              <p-fileUpload name="demo[]" [url]="uploadUrl" (onUpload)="onUpload($event)" multiple="multiple"
+              customUpload="true" (uploadHandler)="onUpload($event)" accept="image/*" maxFileSize="1000000">
+                <ng-template pTemplate="content">
+                  <ul *ngIf="uploadedFiles.length">
+                    <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                  </ul>
+                </ng-template>
+              </p-fileUpload>
+
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

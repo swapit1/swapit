@@ -1,0 +1,28 @@
+.login-text{
+    text-decoration-line: underline;
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
+    font-size: 10pt;
+    color: #bdbdbd;
+    display: inline-block;
+}
+.ui-inputtext{
+    color: #bdbdbd !important;
+    
+
+}
+.ui-g-12 {
+    padding-left: inherit !important;
+}
+.ui-button{
+    width:185px !important;
+}
+.title{
+    color: #f5efef;
+    font-weight: 700;
+    font-size:18pt;
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
+
+}
+span:hover {
+    cursor: pointer;
+}

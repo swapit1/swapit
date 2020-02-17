@@ -1,0 +1,107 @@
+<div class="ui-g dashboard">
+    <div class="ui-g-12 ui-md-4">
+        <div class="card overview side">
+            <div class="overview-content clearfix r">
+                <span class="overview-title">עסקאות</span>
+
+                <span class="overview-detail">$22,650 / week</span>
+            </div>
+            <div class="overview-footer">
+                <img src="assets/layout/images/dashboard/sales.svg" style="width: 100%" />
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12 ui-md-4">
+        <div class="card overview side">
+            <div class="overview-content clearfix side">
+                <span class="overview-title">Views</span>
+
+                <span class="overview-detail">6,520 / day</span>
+            </div>
+            <div class="overview-footer">
+                <img src="assets/layout/images/dashboard/views.svg" style="width: 100%" />
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12 ui-md-4">
+        <div class="card overview side">
+            <div class="overview-content clearfix r">
+                <span class="overview-title">משתמשים</span>
+
+                <span class="overview-detail">{{clients.length}} / Till now</span>
+            </div>
+            <div class="overview-footer">
+                <img src="assets/layout/images/dashboard/progress.svg" style="width: 100%" />
+            </div>
+        </div>
+    </div>
+
+    <div class="ui-g-6 r">
+
+        <p-table class="side" (onRowSelect)="selectedClient = $event.data" (onRowUnselect)="selectedClient = null"
+            [columns]="cols" [value]="clients" selectionMode="single" dataKey="client_id" [(selection)]="selectedClient"
+            [style]="{'margin-bottom':'20px'}">
+            <ng-template pTemplate="caption">
+                לקוחות
+                <span *ngIf="selectedClient" style="float: left;">
+                    <i class="fa fa-trash" (click)="deleteClient(selectedClient)" style="margin-left: 10px;"></i>
+                    <i class="fa fa-edit" (click)="editClient(selectedClient)"></i>
+                </span>
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns" ngmodel="flag">
+                <tr [pSelectableRow]="rowData">
+                    <td *ngFor="let col of columns">
+                        <span *ngIf="col.field != 'טופל'">{{rowData[col.field]}}</span>
+                        <span *ngIf="col.field == 'טופל'">{{rowData[col.field] == true ? 'V' : 'X'}}</span>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <div class="ui-g-6 ">
+            <p-table class="side" (onRowSelect)="onRowSelect($event)"  (onRowUnselect)="selectedNotification = null"
+            [columns]="items" [value]="Notification" selectionMode="single" dataKey="note_code" [(selection)]="selectedNotification"
+            [style]="{'margin-bottom':'20px'}">
+            <ng-template pTemplate="caption">
+               הודעות
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns" ngmodel="flag">
+                <tr [pSelectableRow]="rowData">
+                    <td *ngFor="let col of columns">
+                        <span *ngIf="col.field != 'viewd' && col.field != 'subject_code'">{{rowData[col.field]}}</span>
+                        <span *ngIf="col.field == 'subject_code' && subject">{{getSubjectNameById(rowData[col.field])}}</span>
+                        <span *ngIf="col.field == 'viewd'">
+                            <p-checkbox binary="true" [(ngModel)]="rowData[col.field]"></p-checkbox>
+                        </span>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+        <!-- <p-panel header="הודעות">
+            <ul>
+                <li *ngFor="let item of Notification" panel="listNot">
+                    <p-checkbox binary="true"></p-checkbox>
+                    <span class="task-name">{{item.subject_code}}</span>
+                    <span class="task-name">{{item.text}}</span>
+                </li>
+            </ul>
+        </p-panel> -->
+    </div>
+
+</div>

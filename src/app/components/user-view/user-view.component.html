@@ -1,0 +1,40 @@
+<div class="ui-g-12 " style="height:150px;">
+    <div class="card card-w-title">
+      
+                <div  class="ui-g-6 "> 
+            <button class="clear" (click)="editprop()">עדכון דירה שלי</button>
+            <button class="clear" (click)="editexep()">עדכון דרישות</button></div> <div class="ui-g-6 ">
+            <h1 class="h">
+                הי {{this.currUser.client_name}}</h1></div>
+       
+    </div>
+</div>
+
+<div class="ui-g-12 ">
+    <div class="card card-w-title">
+
+        <p-carousel headerText="ההתאמות שלך" [value]="matchesList" class="user-view-ui">
+            <ng-template let-match pTemplate="item">
+                <div class="ui-g" style="text-align:center">
+                    <div class="ui-g-12" style="text-align:Center">
+                        <img width="70%" height="250px" src="http://localhost:59069//Userproperty//{{match.imgName}}" />
+                    </div>
+                    <div class="ui-g-6">מחיר: </div>
+                    <div class="ui-g-6" style="font-weight:bold"> {{ DisplayNumberWithCommas(match.property_price)}}
+                    </div>
+
+                    <div class="ui-g-6">כתובת: </div>
+                    <div class="ui-g-6" style="font-weight:bold"> {{match.property_city}}, {{match.property_street}}
+                    </div>
+
+                    <div class="ui-g-6">חדרים: </div>
+                    <div class="ui-g-6" style="font-weight:bold">{{match.property_rooms}}</div>
+
+                    <div class="ui-g-6">מטר ריבועי: </div>
+                    <div class="ui-g-6" style="font-weight:bold">{{match.property_squaremeters}}</div>
+                </div>
+                <div class="ui-g-12 " style="height: 30px;"><button>עדכון דירה שלי</button></div>
+            </ng-template>
+        </p-carousel>
+    </div>
+</div>

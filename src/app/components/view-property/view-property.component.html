@@ -1,0 +1,78 @@
+<div class="ui-g">
+  <div class="ui-g-12" *ngIf="loaded">
+
+    <div class="ui-g-6">
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" (mapReady)="aa($event)">
+        <agm-marker [latitude]="lat" [longitude]="lng" [label]="cccc"></agm-marker>
+      </agm-map>
+    </div>
+
+    <div class="ui-g-6">
+
+      <div class="ui-g-12 card">
+           <p-galleria [showFilmstrip]="false" [showCaption]="false" [images]="allImg" panelWidth="100%" panelHeight="300"></p-galleria>
+      </div>
+      <div class="ui-g-12" style="padding-bottom: 0mm;">
+        <div class="card-w-title">
+          <h1 class="gofan" style="float: right;">{{property.property_street}} - {{property.property_city}}</h1>
+          <h1 class="gofan" style="float: left;">{{ DisplayNumberWithCommas(property.property_price)}} ₪</h1>
+        </div>
+      </div>
+      <div class="ui-g-12" style="padding-top: 0mm;">
+        <div class="card-w-title">
+          <h2 class="gofan" style="float: right; color: rgb(92, 91, 91);">{{area}}</h2>
+        </div>
+      </div>
+      <hr>
+      <div class="ui-g-12 card-w-title" style="direction: rtl;">
+        <p class="prop-p" style="display: block;"> {{property.property_rooms}} חדרים | קומה {{property.property_floor}}
+          | {{property.property_squaremeters}} מטר ריבועי </p>
+        <p class="prop-p">סוג הנכס: {{propType}}</p>
+        <p class="prop-p" *ngIf="property.property_condition!=8"> | מצב הנכס: {{condition}} </p>
+      </div>
+      <hr>
+      <div class="ui-g-12 card-w-title" style="direction: rtl;">
+        <h1 class="gofan">מפרט דירה</h1>
+
+        <div class="ui-g-6">
+          <p class="is" *ngIf="property.property_bars==true"><i class="fa fa-server"> </i> יש סורגים</p>
+          <p class="isnt" *ngIf="property.property_bars!=true"><i class="fa fa-server"> </i> אין סורגים</p>
+
+          <p class="is" *ngIf="property.property_safe_room==true"><i class="fa fa-shield"> </i> יש ממ"ד או מקלט</p>
+          <p class="isnt" *ngIf="property.property_safe_room!=true"><i class="fa fa-shield"> </i> אין ממ"ד או מקלט</p>
+
+          <p class="is" *ngIf="property.property_parking==true"><i class="fa fa-car"> </i> יש חניה</p>
+          <p class="isnt" *ngIf="property.property_parking!=true"><i class="fa fa-car"> </i> אין חניה</p>
+
+          <p class="is" *ngIf="property.property_succa==true"><i class="fa fa-university"> </i> יש סוכה</p>
+          <p class="isnt" *ngIf="property.property_succa!=true"><i class="fa fa-university"> </i> אין סוכה</p>
+
+
+        </div>
+
+        <div class="ui-g-6">
+          <p class="is" *ngIf="property.property_storage==true"><i class="fa fa-archive"> </i> יש מחסן</p>
+          <p class="isnt" *ngIf="property.property_storage!=true"><i class="fa fa-archive"> </i> אין מחסן</p>
+
+          <p class="is" *ngIf="property.property_lift==true"><i class="fa fa-toggle-up"> </i> יש מעלית</p>
+          <p class="isnt" *ngIf="property.property_lift!=true"><i class="fa fa-toggle-up"> </i> אין מעלית</p>
+
+          <p class="is" *ngIf="property.property_disabled_access==true"><i class="fa fa-wheelchair"> </i> יש נגישות
+            לנכים</p>
+          <p class="isnt" *ngIf="property.property_disabled_access!=true"><i class="fa fa-wheelchair"> </i> אין נגישות
+            לנכים</p>
+
+          <p class="is" *ngIf="property.property_air_conditioning==true"><i class="fa fa-snowflake-o"> </i> יש מיזוג
+            אוויר</p>
+          <p class="isnt" *ngIf="property.property_air_conditioning!=true"><i class="fa fa-snowflake-o"> </i> אין מיזוג
+            אוויר</p>
+
+
+        </div>
+      </div>
+      <hr>
+
+    </div>
+
+  </div>
+</div>

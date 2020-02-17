@@ -1,0 +1,35 @@
+<div class="ui-g-12">
+        <div class="card">
+            <p-steps [model]="items"  [activeIndex]="3"></p-steps>
+        </div>
+    
+    <div class="u-g ui-g-12">
+            
+        <div class="ui-g-6 b">
+            
+            <div class="ui-g-12"><span class="tellUs">רק תחתום</span><br><br>
+            <span class="tellUs">כאן וסיימנו</span>
+                <div class="ui-g-6 sig canvas">
+                    <signature-pad class="sig-pad" #sp [options]="signaturePadOptions" (onBeginEvent)="drawStart()"
+                        (onEndEvent)="drawComplete()">
+                    </signature-pad>
+                </div>
+            </div>
+           
+            <div class="ui-g-12">
+    
+                <button class="clear" (click)="sp.clear()">Clear signature</button>
+                <button class="clear" (click)="saveSignature()">Save</button>
+                 <button class="clear"><a download="filename" class="dl" target="_blank" href="assets/document (1).pdf">להורדת
+                        התקנון</a></button>
+               
+            </div>
+    
+        </div>
+       
+        <div class="ui-g-6 ">
+                <img class="img img1" src="assets/demo/images/home-images/housePolicy.png" />
+            </div> <!--image -->
+    </div>
+    
+    </div>

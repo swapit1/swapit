@@ -1,0 +1,164 @@
+<div class="ui-g">
+    <div class="ui-g-12">
+      <div class="card-w-title">
+        <div class="card">
+          <p-steps [model]="items"></p-steps>
+        </div>
+        <div class="ui-g-6 " style="text-align: right;">
+          <br /><br> <br /><br>
+          <span class="tellUs"> ספר לנו קצת על עצמך</span>
+          <!--reCaptcha-->
+          <script src="https://www.google.com/recaptcha/api.js?render=explicit&onload=initRecaptcha" async defer></script>
+          <p-captcha siteKey="AIzaSyCCu8zJaEuDTOhf7FNnsHELBMX3baHzlh8" (onResponse)="showResponse($event)"></p-captcha>
+        </div>
+  
+        <div class="ui-g ui-g-6">
+  
+          <div class="ui-g-12">
+            <form [formGroup]="userform">
+              <div class="card card-w-title">
+                <h1 style="direction: rtl; text-align: center;font-size: 20pt; font-weight: 700 ">פרטים אישיים:</h1><br />
+                <div class="ui-g">
+                  <div class="ui-g-6">
+  
+                    <div class="ui-g form-group">
+                      <div class="ui-g-12 ui-md-6">
+                        <div class="ui-inputgroup">
+                          <span class="ui-inputgroup-addon"><i class="material-icons">account_box</i></span>
+                          <span class="md-inputfield">
+                            <input type="text" pInputText formControlName="firstName" [(ngModel)]="userData.client_name">
+                            <!-- *ngIf="!userform.controls['firstName'].valid&&userform.controls['firstName'].dirty" -->
+                            <p-message severity="error" text="שדה חובה"
+                              *ngIf="!userform.controls['firstName'].valid&&userform.controls['firstName'].dirty">
+                            </p-message>
+                            <label>שם פרטי</label>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <br />
+  
+                    <div class="ui-g form-group">
+                      <div class="ui-g-12 ui-md-6">
+                        <div class="ui-inputgroup">
+                          <span class="ui-inputgroup-addon"><i class="material-icons">account_circle</i></span>
+                          <span class="md-inputfield">
+                            <input type="text" formControlName="lastName" pInputText
+                              [(ngModel)]="userData.client_sure_name">
+                            <p-message severity="error" text="שדה חובה"
+                              *ngIf="!userform.controls['lastName'].valid&&userform.controls['lastName'].dirty">
+                            </p-message>
+                            <label>שם משפחה</label>
+                          </span>
+                        </div>
+                      </div>
+                    </div> <br />
+  
+                    <div class="ui-g form-group">
+                      <div class="ui-g-12 ui-md-6">
+                        <div class="ui-inputgroup">
+                          <span class="ui-inputgroup-addon"><i class="material-icons">fingerprint</i></span>
+                          <span class="md-inputfield">
+                            <input type="text" formControlName="id" pInputText [(ngModel)]="userData.client_id" [disabled]="!newUser">
+                            <p-message severity="error" text="הזן תעודת זהות תקינה"
+                              *ngIf="!userform.controls['id'].valid&&userform.controls['id'].dirty"></p-message>
+                            <label>תעודת זהות</label>
+                          </span>
+                        </div>
+                      </div>
+                    </div> <br /><br />
+                    <div class="ui-g-12">
+                      <p-checkbox formControlName="agree" name="cg" label="מוכן לקבל עדכונים במייל " binary="true"
+                        [(ngModel)]="userData.client_email_consent"></p-checkbox>
+                    </div>
+                    <br /><br />
+                    <button pButton type="button" label="הרשמה" class="alef" *ngIf="newUser"
+                      style="margin-bottom:10px; width: 200px;margin-top: 18px;font-size: 15pt;" (click)="SubmitButton()"
+                      [disabled]="userform.invalid"></button>
+                    <button pButton type="button" label="עדכן" class="alef" *ngIf="!newUser"
+                      style="margin-bottom:10px; width: 200px;margin-top: 18px;font-size: 15pt;" (click)="updateUser()"
+                      [disabled]="userform.invalid"></button>
+  
+  
+  
+                  </div>
+  
+                  <div class="ui-g-6">
+  
+  
+                    <div class="ui-g form-group">
+                      <div class="ui-g-12 ui-md-6">
+                        <div class="ui-inputgroup">
+                          <span class="ui-inputgroup-addon"><i class="material-icons">markunread</i></span>
+                          <span class="md-inputfield">
+                            <input type="text" formControlName="email" pInputText [(ngModel)]="userData.client_email">
+                            <p-message severity="error" text="Field is required"
+                              *ngIf="!userform.controls['email'].valid&&userform.controls['email'].dirty"></p-message>
+                            <label>אימייל</label>
+                          </span>
+                        </div>
+                      </div>
+                    </div> <br />
+  
+                    <div class="ui-g form-group">
+                      <div class="ui-g-12 ui-md-6">
+                        <div class="ui-inputgroup">
+                          <span class="ui-inputgroup-addon"><i class="material-icons">call</i></span>
+                          <span class="md-inputfield">
+                            <input type="text" formControlName="phone" pInputText [(ngModel)]="userData.client_phone">
+                            <p-message severity="error" text="Field is required"
+                              *ngIf="!userform.controls['phone'].valid&&userform.controls['phone'].dirty"></p-message>
+  
+                            <label>טלפון</label>
+                          </span>
+                        </div>
+                      </div>
+                    </div> <br />
+  
+                    <div class="ui-g form-group">
+                      <div class="ui-g-12 ui-md-6">
+                        <div class="ui-inputgroup">
+                          <span class="ui-inputgroup-addon"><i class="material-icons">lock</i></span>
+                          <span class="md-inputfield">
+                            <input (change)="incorrectVerifyPassword = false" formControlName="password"
+                              [(ngModel)]="userData.client_password" type="password" pPassword appPassword>
+                            <p-message severity="error" text="Field is required"
+                              *ngIf="!userform.controls['password'].valid&&userform.controls['password'].dirty">
+                            </p-message>
+                            <label>סיסמא</label>
+                          </span>
+                        </div>
+                      </div>
+                    </div> <br />
+  
+                    <div class="ui-g form-group" *ngIf="newUser">
+                      <div class="ui-g-12 ui-md-6">
+                        <div class="ui-inputgroup">
+                          <span class="ui-inputgroup-addon"><i class="material-icons">lock_outline</i></span>
+                          <span class="md-inputfield">
+                            <input (change)="incorrectVerifyPassword = false" [(ngModel)]="verifyPassword"
+                              formControlName="verifyPassword" type="password" pInputText appPassword>
+                            <p-message severity="error" text="Field is required"
+                              *ngIf="!userform.controls['verifyPassword'].valid&&userform.controls['verifyPassword'].dirty">
+                            </p-message>
+                            <p-message severity="error" text="סיסמא לא זהה" *ngIf="incorrectVerifyPassword"></p-message>
+                            <label>אימות סיסמא</label>
+                          </span>
+                        </div>
+                      </div>
+                    </div> <br />
+  
+  
+                  </div>
+                </div>
+              </div>
+  
+  
+  
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

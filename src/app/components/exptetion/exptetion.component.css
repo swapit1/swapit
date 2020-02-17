@@ -1,0 +1,97 @@
+@import url(http://fonts.googleapis.com/earlyaccess/alefhebrew.css);
+
+
+
+.ui-button{
+    border-radius: 17px !important;
+    
+    font-weight: 700 !important;
+    margin: 4px;
+}
+.img1{
+    height: 600px;
+    width: 100%;
+    opacity:0.92;
+    
+}
+
+.marg{
+margin-right: 18px;;
+}
+
+.h1{
+ text-align: center;
+ color: rgb(60, 51, 121);
+ font-size: 25px  !important;
+ font-weight: 700    !important;
+}
+.size{
+width: 100%;
+
+height: 20px;;
+}
+.ui-button-rounded-m{
+    margin:15px  ;
+
+}
+.b{
+    border-width: 0px;
+    border-style: initial;
+    border-color: gray;
+}
+.r{
+    margin:22px ;
+    padding: 6px;
+}
+.pcss{
+
+margin-right: 80px;
+}
+.editor-bth{
+    margin:12px  ;
+    border-radius: 5rem;
+    font-size:17px;
+    
+}
+.w{
+    margin: 4px;
+    direction: rtl;
+}
+.editor-bth:focus{
+    background-color: #1ab394;
+    color:white;
+
+}
+.t{
+    float: right;
+margin: 10px;
+}
+.c{
+    background-color: lightgray;
+}
+.middle{
+    
+   float: right;
+
+}
+
+
+.ui-steps-item {
+    width: 25%
+}
+body .ui-steps .ui-steps-item.ui-state-highlight .ui-steps-title{
+    font-family: "Alef Hebrew",
+               “Helvetica Neue”,
+               Helvetica,
+               Arial,
+               sans-serif;
+    font-size: 20px;           
+}
+body .ui-steps .ui-steps-item .ui-menuitem-link .ui-steps-title{
+    font-family: "Alef Hebrew",
+               “Helvetica Neue”,
+               Helvetica,
+               Arial,
+               sans-serif;
+               font-size: 23px;
+}
